@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fundacion-pae": {
+      "hosting": {
+        "results-pae": [
+          "results-pae-ec"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fundacion-pae"
+  }
+}

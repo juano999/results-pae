@@ -31,7 +31,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/theme/mixins.scss",
+              "src/theme/variables.scss"
             ],
             "scripts": []
           },
@@ -99,9 +101,20 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/theme/variables.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "results-pae:build:production",
+            "firebaseProject": "fundacion-pae",
+            "firebaseHostingSite": "results-pae-ec"
           }
         }
       }

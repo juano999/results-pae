@@ -1,0 +1,31 @@
+<app-main-menu></app-main-menu>
+<div class="container">
+    <div class="container__content">
+
+
+        <div class="container__title">Bienvenido, </div>
+        <div class="container__subtitle">
+            Tus archivos
+        </div>
+        <div class="container__table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nº</th>
+                        <th>Fecha</th>
+                        <th>Doctor</th>
+                        <th>Documento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of results">
+                        <td>{{item.id}}</td>
+                        <td>{{item.date}}</td>
+                        <td>{{item.doctor}}</td>
+                        <td>{{item.url}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

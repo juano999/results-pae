@@ -1,0 +1,10 @@
+.container-menu {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffff;
+    &__logo {
+        img {
+            width: 150px;
+        }
+    }
+}
