@@ -3,13 +3,13 @@
         <div class="login__logo">
             <img src="{{environment.url_images}}/logotipo.png" alt="logotipo-pae">
         </div>
-        <div class="login__legend">CONSULTA LOS ARCHIVOS DE TU MASCOTA</div>
+        <div class="login__legend">CONSULTA TUS ARCHIVOS</div>
         <form class="login__form" [formGroup]="loginForm">
 
             <label class="form__label" for="usuario">Usuario: </label>
             <input class="form__input" type="text" formControlName="username">
             <label class="form__label" for="contraseña">Contraseña: </label>
-            <input class="form__input" type="text" formControlName="password">
+            <input class="form__input" type="password" formControlName="password">
             <button class="form__button" (click)="login()">Entrar</button>
         </form>
 

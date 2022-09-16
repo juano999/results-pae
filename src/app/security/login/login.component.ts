@@ -1,3 +1,4 @@
+import { Utilities } from './../../framework/util/Utilities';
 import { DataServices } from './../../data.services';
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
@@ -30,8 +31,8 @@ export class LoginComponent implements OnInit {
 
   }
 
-  login() {
-    this.dataServices.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value)
+  async login() {
+    await this.dataServices.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value)
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
         const uid = user.uid;
         console.log("Cambiar de pantalla")
         this.router.navigateByUrl(Constants.NAV_HOME_PAGE);
+
         // ...
       } else {
         // User is signed out

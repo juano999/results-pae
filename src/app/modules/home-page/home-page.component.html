@@ -1,11 +1,11 @@
 <app-main-menu></app-main-menu>
 <div class="container">
-    <div class="container__content">
+    <div *ngIf="role == 'user'" class="container__content">
 
 
-        <div class="container__title">Bienvenido, </div>
-        <div class="container__subtitle">
-            Tus archivos
+        <div class="titles-1 container__title">Bienvenido, {{fullName}}</div>
+        <div class="titles-2 container__subtitle">
+            Tus archivos:
         </div>
         <div class="container__table">
             <table>
@@ -13,19 +13,52 @@
                     <tr>
                         <th>Nº</th>
                         <th>Fecha</th>
+                        <th>Ciudad</th>
                         <th>Doctor</th>
                         <th>Documento</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of results">
-                        <td>{{item.id}}</td>
-                        <td>{{item.date}}</td>
+                    <tr *ngFor="let item of results; let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{item.date.toDate() | date: 'medium'}}</td>
+                        <td>{{item.city}}</td>
                         <td>{{item.doctor}}</td>
-                        <td>{{item.url}}</td>
+                        <td>
+                            <div class="item__view-doc pointer-hover">
+                                <a class=" " href="{{item.url}}" target="_blank">Ver
+                                    Documento</a>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div *ngIf="role == 'administrator'" class="container__admin-role">
+        <div class="admin-role__header">
+            <div class="titles-1 container__title">Bienvenido, {{username}}</div>
+            <div class="titles-2 container__subtitle">
+                Como administrador puedes:
+            </div>
+        </div>
+        <div class="admin-role__content">
+            <div class="admin-role__button pointer-hover" (click)="goToAddUser()">
+                <div class="button__title"><label>Agregar Usuario</label></div>
+                <div class="button__icon"><img src="{{environment.url_images}}/add-user.png" alt="agregar usuario">
+                </div>
+            </div>
+            <div class="admin-role__button pointer-hover" (click)="goToUploadResult()">
+                <div class="button__title"><label for="">Agregar Resultado</label></div>
+                <div class="button__icon"><img src="{{environment.url_images}}/add-result.png" alt="agregar resultado">
+                </div>
+            </div>
+            <div class="admin-role__button pointer-hover">
+                <div class="button__title"><label for="">Consultar Archivos de un Usuario</label></div>
+                <div class="button__icon"><img src="{{environment.url_images}}/search-results.png"
+                        alt="consultar Archivos"></div>
+            </div>
         </div>
     </div>
 </div>

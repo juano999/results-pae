@@ -8,5 +8,6 @@ export const environment = {
     authDomain: 'fundacion-pae.firebaseapp.com',
     messagingSenderId: '352135160412',
   },
-  production: true
+  production: true,
+  url_images: '../assets',
 };

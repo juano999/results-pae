@@ -1,0 +1,23 @@
+<app-main-menu></app-main-menu>
+<div class="container">
+    <div class="container__content">
+        <div class="titles-1 container__title">Agrega un usuario</div>
+        <div class="titles-2 container__subtitle"></div>
+        <form class="container__form" [formGroup]="addUserForm">
+            <label class="form__label" for="">Cédula del usuario:</label>
+            <input class="form__input" type="text" formControlName="username">
+            <label class="form__label" for="">Email:</label>
+            <input class="form__input" type="text" formControlName="email">
+            <label class="form__label" for="">Nombre:</label>
+            <input class="form__input" type="text" formControlName="name">
+            <label class="form__label" for="">Apellido:</label>
+            <input class="form__input" type="text" formControlName="lastname">
+            <label class="form__label" for="">Rol:</label>
+            <select class="form__input" name="role" id="" formControlName="role">
+                <option value="administrator">Administrador</option>
+                <option value="user">Usuario</option>
+            </select>
+            <button class="form__button" (click)="onSubmit()">Agregar</button>
+        </form>
+    </div>
+</div>

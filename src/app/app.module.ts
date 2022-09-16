@@ -15,13 +15,18 @@ import { DataServices } from './data.services';
 import { HttpClientModule } from '@angular/common/http';
 import { FirestoreModule } from '@angular/fire/firestore'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddUserComponent } from './modules/add-user/add-user.component';
+import { UploadResultComponent } from './modules/upload-result/upload-result.component';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     MainMenuComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    AddUserComponent,
+    UploadResultComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   providers: [DataServices],
   bootstrap: [AppComponent]

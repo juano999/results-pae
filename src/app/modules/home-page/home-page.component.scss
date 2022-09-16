@@ -1,18 +1,101 @@
+@import "../../../theme/mixins.scss";
 .container {
-    background-color: var(--color-green-3);
-    &__content {
-        max-width: 1400px;
-        margin: 25px auto;
-    }
     &__table {
+        //border: 1px solid;
+        margin-top: 20px;
+        overflow-x: auto;
         table {
             border-collapse: collapse;
+            width: 100%;
+            background-color: #ffff;
+            font-size: 18px;
+            @include respond(mobile) {
+                min-width: 500px;
+            }
         }
-        td,
+
         th {
-            border: 1px solid var(--color-dark);
             text-align: left;
-            padding: 8px;
+            padding: 13px;
         }
+        thead {
+            background-color: var(--color-green-4);
+            border-bottom: 2px solid var(--color-dark);
+            color: #ffff;
+        }
+        td {
+            text-align: left;
+            border-bottom: 1px solid var(--color-dark);
+            padding: 13px;
+        }
+
+        th:nth-child(1),
+        td:nth-child(1) {
+            text-align: center;
+        }
+    }
+    &__admin-role {
+        max-width: 700px;
+        margin: 0px auto;
+        padding: 40px 15px;
+    }
+    &__content {
+        max-width: 1400px;
+    }
+}
+
+.admin-role {
+    &__button {
+        height: 200px;
+        border: 1px var(--color-dark);
+        border-style: dashed;
+        text-align: center;
+        background-color: #ffff;
+    }
+    &__content {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 32% 32% 32%;
+        grid-column-gap: 2%;
+        @include respond(mobile) {
+            grid-template-columns: 48% 48%;
+            grid-column-gap: 2%;
+            grid-row-gap: 2%;
+        }
+    }
+}
+
+.item {
+    &__view-doc {
+        border: 1px solid var(--color-green-4);
+        border-radius: 26px;
+        padding: 8px 10px;
+        font-weight: bold;
+        width: fit-content;
+        text-align: center;
+        a {
+            color: var(--color-green-4);
+            text-decoration: none;
+        }
+    }
+}
+
+.button {
+    &__icon {
+        padding-top: 10px;
+
+        img {
+            width: 130px;
+        }
+    }
+    &__title {
+        border-bottom: 1px dashed var(--color-dark);
+        background-color: var(--color-green-4);
+        color: #ffff;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
     }
 }

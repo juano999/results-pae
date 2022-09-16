@@ -1,3 +1,5 @@
+import { UploadResultComponent } from './modules/upload-result/upload-result.component';
+import { AddUserComponent } from './modules/add-user/add-user.component';
 import { LoginComponent } from './security/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,6 +9,14 @@ const routes: Routes = [
   {
     path: Constants.NAV_HOME_PAGE,
     component: HomePageComponent
+  },
+  {
+    path: Constants.NAV_ADD_USER,
+    component: AddUserComponent
+  },
+  {
+    path: Constants.NAV_UPLOAD_RESULT,
+    component: UploadResultComponent
   },
   {
     path: '\**',

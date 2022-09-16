@@ -1,0 +1,18 @@
+.container {
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.form {
+    &__button {
+        font-family: "Source Sans Pro", Helvetica, Arial, Lucida, sans-serif;
+        width: fit-content;
+        font-size: 20px;
+        padding: 5px 15px;
+        color: #fff;
+        background: var(--color-dark);
+        cursor: pointer;
+    }
+}

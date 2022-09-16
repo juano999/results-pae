@@ -21,4 +21,59 @@ button {
 }
 
 .container {
+    background-color: var(--color-green-3);
+    height: 90vh;
+    &__content {
+        max-width: 700px;
+        margin: 0px auto;
+        padding: 40px 15px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.pointer-hover {
+    cursor: pointer;
+}
+
+.titles-1 {
+    color: var(--color-green-4);
+    font-weight: bold;
+    font-style: normal;
+    font-size: 30px;
+}
+
+.titles-2 {
+    font-size: 26px;
+    color: var(--color-dark);
+    font-weight: bold;
+    font-style: normal;
+}
+
+.form {
+    &__button {
+        font-family: "Source Sans Pro", Helvetica, Arial, Lucida, sans-serif;
+        width: fit-content;
+        font-size: 20px;
+        padding: 5px 15px;
+        color: #fff;
+        background: var(--color-dark);
+        cursor: pointer;
+    }
+    &__button:hover {
+        color: #333;
+        background: var(--color-green-2);
+    }
+    &__label {
+        margin-bottom: 5px;
+    }
+    &__input {
+        margin-bottom: 20px;
+    }
+    &__label,
+    &__input {
+        font-size: 21px;
+    }
 }

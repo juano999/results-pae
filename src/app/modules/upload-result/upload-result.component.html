@@ -1,0 +1,18 @@
+<app-main-menu></app-main-menu>
+<div class="container">
+    <div class="container__content">
+        <div class="titles-1 container__title">Sube los resultados de un cliente</div>
+        <div class="titles-2 container__subtitle"></div>
+        <form class="container__form" [formGroup]="uploadResultForm">
+            <label class="form__label" for="">Cédula del usuario:</label>
+            <input class="form__input" type="text" formControlName="username">
+            <label class="form__label" for="">Ciudad:</label>
+            <input class="form__input" type="text" formControlName="city">
+            <label class="form__label" for="">Doctor encargado:</label>
+            <input class="form__input" type="text" formControlName="doctor">
+            <label class="form__label" for="">Subir documento:</label>
+            <input class="form__input" type="file" (change)="uploadDoc($event)">
+            <button class="form__button" (click)="onSubmit()">Subir</button>
+        </form>
+    </div>
+</div>

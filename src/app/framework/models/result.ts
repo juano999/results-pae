@@ -1,8 +1,8 @@
 export default interface Result {
     id?: string;
     doctor: string;
-    date: string;
+    date: any;
     url: string;
     username: string;
-
+    city: string;
 }
