@@ -25,10 +25,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataServices.getUsers().subscribe((users) => {
-      console.log(users);
-    })
-
+    // this.dataServices.getUsers().subscribe((users) => {
+    //   console.log(users);
+    // })
   }
 
   async login() {
@@ -44,8 +43,8 @@ export class LoginComponent implements OnInit {
 
         // ...
       } else {
-        // User is signed out
-        // ...
+        this.loginForm.reset()
+
       }
     });
   }

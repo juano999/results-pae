@@ -17,10 +17,10 @@ export class AddUserComponent implements OnInit {
     this.addUserForm = this.formBuilder.group({
       username: [null, [Validators.required]],
       role: [null, [Validators.required]],
-      password: [null, [Validators.required]],
+      password: [null],
       name: [null, [Validators.required]],
       lastname: [null, [Validators.required]],
-      email: [null]
+      email: [null, [Validators.required]]
     })
   }
 
@@ -42,6 +42,10 @@ export class AddUserComponent implements OnInit {
 
   async onSubmit() {
     this.addUserForm.value.password = this.addUserForm.value.username
+    if (this.addUserForm.invalid) {
+      alert("¡Algunos campos no están llenos! Asegúrese de llenarlos.")
+      return;
+    }
     const response = await this.dataServices.addUser(this.addUserForm.value);
     console.log(response);
 

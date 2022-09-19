@@ -18,6 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddUserComponent } from './modules/add-user/add-user.component';
 import { UploadResultComponent } from './modules/upload-result/upload-result.component';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RegisterComponent } from './security/register/register.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +30,9 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     FooterComponent,
     LoginComponent,
     AddUserComponent,
-    UploadResultComponent
+    UploadResultComponent,
+    RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,9 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [DataServices],
   bootstrap: [AppComponent]

@@ -14,5 +14,6 @@
             <input class="form__input" type="file" (change)="uploadDoc($event)">
             <button class="form__button" (click)="onSubmit()">Subir</button>
         </form>
+        <mat-spinner *ngIf="showSpinner"></mat-spinner>
     </div>
 </div>

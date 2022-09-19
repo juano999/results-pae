@@ -8,6 +8,7 @@ import { async } from 'rxjs';
 import { Router } from '@angular/router';
 import { Constants } from 'src/app/framework/enum/constants';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-upload-result',
@@ -17,12 +18,13 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 export class UploadResultComponent implements OnInit {
   uploadResultForm: FormGroup
   file: any;
+  showSpinner = false;
   constructor(private storage: Storage, private formBuilder: FormBuilder, private dataServices: DataServices, private router: Router) {
     this.uploadResultForm = this.formBuilder.group({
       username: [null, [Validators.required]],
       doctor: [null, [Validators.required]],
       city: [null, [Validators.required]],
-      url: [null, [Validators.required]],
+      url: [null],
       date: [null]
     })
   }
@@ -50,12 +52,12 @@ export class UploadResultComponent implements OnInit {
   }
 
   async onSubmit() {
-
+    this.showSpinner = true
     this.uploadResultForm.value.date = new Date();
-    console.log(this.uploadResultForm.value)
-    console.log("f", this.file)
+
+
     if (this.file == '' || this.file == null) {
-      console.log("fjdif")
+      this.showSpinner = false
       alert("¡No ha seleccionado ningun archivo! Asegúrese de seleccionar uno.")
       return;
     } else {
@@ -79,14 +81,17 @@ export class UploadResultComponent implements OnInit {
         });
     }
 
+    console.log(this.uploadResultForm.controls)
+    console.log(this.uploadResultForm.value.url)
     if (this.uploadResultForm.invalid) {
+      this.showSpinner = false
       alert("¡Algunos campos no están llenos! Asegúrese de llenarlos.")
       return;
     }
 
     const response = await this.dataServices.addResult(this.uploadResultForm.value);
     console.log(response);
-
+    this.showSpinner = false
     this.router.navigateByUrl(Constants.NAV_HOME_PAGE);
     alert('¡Resultado subido con éxito!');
   }

@@ -6,7 +6,7 @@ import { doc, getDoc, collection } from "firebase/firestore";
 import { Observable } from "rxjs";
 import User from "./framework/models/user";
 import { FormGroup } from "@angular/forms";
-import { getAuth, signInAnonymously } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInAnonymously } from "firebase/auth";
 import Result from "./framework/models/result";
 import { Utilities } from "./framework/util/Utilities";
 
@@ -33,6 +33,7 @@ export class DataServices {
                 fullName = doc.data()['name'] + ' ' + doc.data()['lastname']
             } else {
                 stateLogin = false;
+
             }
         })
         if (stateLogin) {
@@ -49,9 +50,12 @@ export class DataServices {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+
                     // ...
                 });
 
+        } else {
+            alert("Credenciales incorrectas")
         }
     }
 
@@ -72,8 +76,28 @@ export class DataServices {
     }
 
     addUser(user: User) {
+        console.log("entra")
         const usersRef = collection(this.store, 'users');
         return addDoc(usersRef, user);
+    }
+
+    register(user: User) {
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, user.email, user.password)
+            .then((userCredential) => {
+                // Signed in
+                const userid = userCredential.user;
+                console.log('user', userid)
+
+                this.addUser(user)
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log('error', errorMessage)
+                // ..
+            });
     }
 
 }

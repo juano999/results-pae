@@ -1,3 +1,4 @@
+import { RegisterComponent } from './security/register/register.component';
 import { UploadResultComponent } from './modules/upload-result/upload-result.component';
 import { AddUserComponent } from './modules/add-user/add-user.component';
 import { LoginComponent } from './security/login/login.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: Constants.NAV_UPLOAD_RESULT,
     component: UploadResultComponent
+  },
+  {
+    path: Constants.NAV_REGISTER,
+    component: RegisterComponent
   },
   {
     path: '\**',

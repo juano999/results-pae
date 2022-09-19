@@ -36,10 +36,18 @@ export class HomePageComponent implements OnInit {
       this.results = results;
 
     })
+    this.role = Utilities.getRole()
+    this.username = Utilities.getUsername()
+    this.fullName = Utilities.getFullName()
     console.log('user', this.username)
     console.log('role', this.role)
+    if (this.role == '' || this.fullName == '') {
+      console.log("Error")
 
-
+      setTimeout(function () {
+        location.reload();
+      }, 300)
+    }
   }
 
   goToAddUser() {

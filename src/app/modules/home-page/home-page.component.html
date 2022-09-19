@@ -38,7 +38,7 @@
 
     <div *ngIf="role == 'administrator'" class="container__admin-role">
         <div class="admin-role__header">
-            <div class="titles-1 container__title">Bienvenido, {{username}}</div>
+            <div class="titles-1 container__title">Bienvenido, {{fullName}}</div>
             <div class="titles-2 container__subtitle">
                 Como administrador puedes:
             </div>
@@ -54,11 +54,12 @@
                 <div class="button__icon"><img src="{{environment.url_images}}/add-result.png" alt="agregar resultado">
                 </div>
             </div>
-            <div class="admin-role__button pointer-hover">
+            <!-- <div class="admin-role__button pointer-hover">
                 <div class="button__title"><label for="">Consultar Archivos de un Usuario</label></div>
                 <div class="button__icon"><img src="{{environment.url_images}}/search-results.png"
                         alt="consultar Archivos"></div>
-            </div>
+            </div> -->
+            <div></div>
         </div>
     </div>
 </div>
