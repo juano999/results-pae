@@ -21,6 +21,8 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RegisterComponent } from './security/register/register.component';
+import { ResetPasswordComponent } from "./security/reset-password/reset-password.component";
+import { ChangePasswordComponent } from './modules/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { RegisterComponent } from './security/register/register.component';
     AddUserComponent,
     UploadResultComponent,
     RegisterComponent,
+    ResetPasswordComponent,
+    ChangePasswordComponent,
 
   ],
   imports: [

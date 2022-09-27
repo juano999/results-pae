@@ -1,3 +1,5 @@
+import { ChangePasswordComponent } from './modules/change-password/change-password.component';
+import { ResetPasswordComponent } from "./security/reset-password/reset-password.component";
 import { RegisterComponent } from './security/register/register.component';
 import { UploadResultComponent } from './modules/upload-result/upload-result.component';
 import { AddUserComponent } from './modules/add-user/add-user.component';
@@ -22,6 +24,14 @@ const routes: Routes = [
   {
     path: Constants.NAV_REGISTER,
     component: RegisterComponent
+  },
+  {
+    path: Constants.NAV_RESET_PASSWORD,
+    component: ResetPasswordComponent
+  },
+  {
+    path: Constants.NAV_CHANGE_PASSWORD,
+    component: ChangePasswordComponent
   },
   {
     path: '\**',

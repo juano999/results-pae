@@ -11,7 +11,12 @@
             <label class="form__label" for="contraseña">Contraseña: </label>
             <input class="form__input" type="password" formControlName="password">
             <button class="form__button" (click)="login()">Entrar</button>
+            <label class="form__go-to">¿Aún no tienes cuenta? <a (click)="goToRegister()">Regístrate aquí</a></label>
+            <label class="form__go-to">¿Olvidaste tu contraseña? <a (click)="goToResetPassword()">Click aquí</a></label>
         </form>
+        <div class="container-security__note">
+            <label for=""><b>Nota: </b>Recuerda que tu usuario y contraseña son tu número de cédula</label>
+        </div>
 
     </div>
 </div>

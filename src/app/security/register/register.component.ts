@@ -58,5 +58,8 @@ export class RegisterComponent implements OnInit {
     // console.log('responseAdduser', responseAddUser);
     this.router.navigateByUrl(Constants.NAV_LOGIN);
   }
+  goTo() {
+    this.router.navigateByUrl(Constants.NAV_LOGIN);
+  }
 
 }

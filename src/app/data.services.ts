@@ -6,15 +6,17 @@ import { doc, getDoc, collection } from "firebase/firestore";
 import { Observable } from "rxjs";
 import User from "./framework/models/user";
 import { FormGroup } from "@angular/forms";
-import { createUserWithEmailAndPassword, getAuth, signInAnonymously } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInAnonymously, signInWithEmailAndPassword } from "firebase/auth";
 import Result from "./framework/models/result";
 import { Utilities } from "./framework/util/Utilities";
+import { Constants } from "./framework/enum/constants";
+import { Router } from "@angular/router";
 
 
 @Injectable()
 export class DataServices {
 
-    constructor(private httpClient: HttpClient, private store: Firestore) {
+    constructor(private httpClient: HttpClient, private store: Firestore, private router: Router) {
 
     }
 
@@ -22,15 +24,17 @@ export class DataServices {
         let stateLogin = false;
         let role = ''
         let fullName = ''
+        let email = ''
         const usersRef = collection(this.store, 'users')
         const q = query(usersRef, where('username', '==', username))
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
             console.log(doc.id, "=> ", doc.data())
-            if (username == doc.data()["username"] && password == doc.data()["password"]) {
+            if (username == doc.data()["username"]) {
                 stateLogin = true;
                 role = doc.data()['role']
                 fullName = doc.data()['name'] + ' ' + doc.data()['lastname']
+                email = doc.data()['email']
             } else {
                 stateLogin = false;
 
@@ -39,23 +43,26 @@ export class DataServices {
         if (stateLogin) {
 
             const auth = getAuth();
-            await signInAnonymously(auth)
+            await signInWithEmailAndPassword(auth, email, password)
                 .then(() => {
                     // Signed in..
-                    console.log("esta dentro")
+                    console.log("Inicio de Sesión Exitoso")
                     Utilities.setUsername(username)
                     Utilities.setRole(role)
                     Utilities.setFullName(fullName);
+                    Utilities.setEmail(email)
+                    this.router.navigateByUrl(Constants.NAV_HOME_PAGE);
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-
+                    console.log("Error en Inicio de Sesión", error)
+                    alert("Credenciales incorrectas")
                     // ...
                 });
 
         } else {
-            alert("Credenciales incorrectas")
+            alert("Este usuario no existe")
         }
     }
 

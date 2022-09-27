@@ -23,7 +23,7 @@ export class UploadResultComponent implements OnInit {
     this.uploadResultForm = this.formBuilder.group({
       username: [null, [Validators.required]],
       doctor: [null, [Validators.required]],
-      city: [null, [Validators.required]],
+      patient: [null, [Validators.required]],
       url: [null],
       date: [null]
     })

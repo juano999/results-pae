@@ -6,13 +6,14 @@
         <form class="container__form" [formGroup]="uploadResultForm">
             <label class="form__label" for="">Cédula del usuario:</label>
             <input class="form__input" type="text" formControlName="username">
-            <label class="form__label" for="">Ciudad:</label>
-            <input class="form__input" type="text" formControlName="city">
-            <label class="form__label" for="">Doctor encargado:</label>
+            <label class="form__label" for="">Paciente:</label>
+            <input class="form__input" type="text" formControlName="patient">
+            <label class="form__label" for="">Médico encargado:</label>
             <input class="form__input" type="text" formControlName="doctor">
             <label class="form__label" for="">Subir documento:</label>
             <input class="form__input" type="file" (change)="uploadDoc($event)">
             <button class="form__button" (click)="onSubmit()">Subir</button>
+
         </form>
         <mat-spinner *ngIf="showSpinner"></mat-spinner>
     </div>

@@ -15,6 +15,12 @@ select {
 .container-security {
     max-width: 600px;
     margin: 50px auto;
+    &__note {
+        margin-top: 47px;
+        /* margin: 15px auto; */
+        text-align: center;
+        font-size: 17px;
+    }
 }
 
 button {
@@ -32,6 +38,9 @@ button {
     &__form {
         display: flex;
         flex-direction: column;
+    }
+    &__title {
+        margin-bottom: 10px;
     }
 }
 
@@ -76,6 +85,15 @@ button {
     &__label,
     &__input {
         font-size: 21px;
+    }
+    &__go-to {
+        margin: 10px auto 0;
+        a {
+            text-decoration: none;
+            color: var(--color-green-2);
+            cursor: pointer;
+            font-weight: 500;
+        }
     }
 }
 

@@ -12,4 +12,7 @@ export class Utilities {
 
     public static getRole(): string { return sessionStorage.getItem('role') || ''; }
     public static setRole(value: any) { return sessionStorage.setItem('role', value); }
+
+    public static getEmail(): string { return sessionStorage.getItem('Email') || ''; }
+    public static setEmail(value: any) { return sessionStorage.setItem('Email', value); }
 }

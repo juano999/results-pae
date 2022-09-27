@@ -13,8 +13,8 @@
                     <tr>
                         <th>Nº</th>
                         <th>Fecha</th>
-                        <th>Ciudad</th>
-                        <th>Doctor</th>
+                        <th>Paciente</th>
+                        <th>Médico</th>
                         <th>Documento</th>
                     </tr>
                 </thead>
@@ -22,7 +22,7 @@
                     <tr *ngFor="let item of results; let i = index;">
                         <td>{{i+1}}</td>
                         <td>{{item.date.toDate() | date: 'medium'}}</td>
-                        <td>{{item.city}}</td>
+                        <td>{{item.patient}}</td>
                         <td>{{item.doctor}}</td>
                         <td>
                             <div class="item__view-doc pointer-hover">

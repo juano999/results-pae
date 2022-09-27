@@ -29,6 +29,12 @@ export class LoginComponent implements OnInit {
     //   console.log(users);
     // })
   }
+  goToRegister() {
+    this.router.navigateByUrl(Constants.NAV_REGISTER);
+  }
+  goToResetPassword() {
+    this.router.navigateByUrl(Constants.NAV_RESET_PASSWORD);
+  }
 
   async login() {
     await this.dataServices.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value)
@@ -39,7 +45,7 @@ export class LoginComponent implements OnInit {
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         console.log("Cambiar de pantalla")
-        this.router.navigateByUrl(Constants.NAV_HOME_PAGE);
+        //this.router.navigateByUrl(Constants.NAV_HOME_PAGE);
 
         // ...
       } else {

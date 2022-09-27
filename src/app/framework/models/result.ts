@@ -4,5 +4,5 @@ export default interface Result {
     date: any;
     url: string;
     username: string;
-    city: string;
+    patient: string;
 }
